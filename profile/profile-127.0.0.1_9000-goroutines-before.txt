@@ -1,0 +1,260 @@
+goroutine profile: total 492
+100 @ 0x5cb0fc 0x5dcea7 0x3296171 0x6021c1
+#	0x3296170	github.com/minio/minio/cmd.(*BatchJobPool).AddWorker+0x130	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/batch-handlers.go:1768
+
+100 @ 0x5cb0fc 0x5dcea7 0x331afba 0x6021c1
+#	0x331afb9	github.com/minio/minio/cmd.(*expiryState).Worker+0xf9	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-lifecycle.go:318
+
+100 @ 0x5cb0fc 0x5dcea7 0x331c5f2 0x6021c1
+#	0x331c5f1	github.com/minio/minio/cmd.(*transitionState).worker+0x151	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-lifecycle.go:476
+
+100 @ 0x5cb0fc 0x5dcea7 0x33bdc5a 0x6021c1
+#	0x33bdc59	github.com/minio/minio/cmd.(*ReplicationPool).AddWorker+0xf9	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:1871
+
+12 @ 0x5cb0fc 0x5dcea7 0x154e33b 0x6021c1
+#	0x154e33a	github.com/minio/minio/internal/event.(*TargetList).startSendWorkers.func1+0x1ba	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/internal/event/targetlist.go:370
+
+10 @ 0x5cb0fc 0x5dcea7 0x33be812 0x6021c1
+#	0x33be811	github.com/minio/minio/cmd.(*ReplicationPool).AddLargeWorker+0xf1	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:1926
+
+6 @ 0x5cb0fc 0x5dcea7 0x3251bb9 0x6021c1
+#	0x3251bb8	github.com/minio/minio/cmd.(*healRoutine).AddWorker+0x138	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/background-heal-ops.go:115
+
+4 @ 0x5cb0fc 0x5dcea7 0x33bd645 0x6021c1
+#	0x33bd644	github.com/minio/minio/cmd.(*ReplicationPool).AddMRFWorker+0x124	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:1842
+
+4 @ 0x5cb0fc 0x5dcea7 0x39414eb 0x6021c1
+#	0x39414ea	github.com/minio/minio/cmd.(*xlStorageDiskIDCheck).monitorDiskWritable+0x3ea	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/xl-storage-disk-id-check.go:1020
+
+4 @ 0x5cb0fc 0x5dcea7 0x39a63a5 0x6021c1
+#	0x39a63a4	github.com/minio/minio/cmd.(*xlStorage).cleanupTrashImmediateCallers+0xe4	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/xl-storage.go:1187
+
+3 @ 0x5cb0fc 0x5c1fbe 0x5fb91c 0x68e41a 0x690398 0x69792d 0x698085 0x9070af 0x9409da 0x93de85 0xcd4986 0x6021c1
+#	0x5fb91b	internal/poll.runtime_pollWait+0x3b					C:/Program Files/Go/src/runtime/netpoll.go:345
+#	0x68e419	internal/poll.(*pollDesc).wait+0x79					C:/Program Files/Go/src/internal/poll/fd_poll_runtime.go:84
+#	0x690397	internal/poll.execIO+0x2b7						C:/Program Files/Go/src/internal/poll/fd_windows.go:175
+#	0x69792c	internal/poll.(*FD).acceptOne+0x10c					C:/Program Files/Go/src/internal/poll/fd_windows.go:944
+#	0x698084	internal/poll.(*FD).Accept+0x444					C:/Program Files/Go/src/internal/poll/fd_windows.go:978
+#	0x9070ae	net.(*netFD).accept+0xce						C:/Program Files/Go/src/net/fd_windows.go:178
+#	0x9409d9	net.(*TCPListener).accept+0x59						C:/Program Files/Go/src/net/tcpsock_posix.go:159
+#	0x93de84	net.(*TCPListener).Accept+0x64						C:/Program Files/Go/src/net/tcpsock.go:327
+#	0xcd4985	github.com/minio/minio/internal/http.(*httpListener).start.func2+0x65	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/internal/http/listener.go:62
+
+3 @ 0x5cb0fc 0x5dcea7 0x37f7773 0x6021c1
+#	0x37f7772	github.com/minio/minio/cmd.mergeContext.func1+0x132	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/shared-lock.go:63
+
+1 @ 0x592d11 0x5fd809 0xbb2877 0x6021c1
+#	0x5fd808	os/signal.signal_recv+0x28	C:/Program Files/Go/src/runtime/sigqueue.go:152
+#	0xbb2876	os/signal.loop+0x16		C:/Program Files/Go/src/os/signal/signal_unix.go:23
+
+1 @ 0x5bd271 0x5fb4dd 0xba7903 0xba7546 0xba2698 0x391d67a 0x391f507 0x31f2cdb 0xb11a53 0x35c353d 0x321ed35 0xb11a53 0x1aa0173 0xb11a53 0x35aa4a8 0xb11a53 0x35ac222 0xb11a53 0x35a9766 0xb11a53 0x35a5159 0xb11a53 0x34339d8 0xb11a53 0x35a57f7 0xb11a53 0x324f437 0xb11a53 0x35c2594 0xb11a53 0x35ab5d3 0xb11a53
+#	0x5fb4dc	runtime/pprof.runtime_goroutineProfileWithLabels+0x1c			C:/Program Files/Go/src/runtime/mprof.go:1079
+#	0xba7902	runtime/pprof.writeRuntimeProfile+0x182					C:/Program Files/Go/src/runtime/pprof/pprof.go:774
+#	0xba7545	runtime/pprof.writeGoroutine+0x85					C:/Program Files/Go/src/runtime/pprof/pprof.go:734
+#	0xba2697	runtime/pprof.(*Profile).WriteTo+0x97					C:/Program Files/Go/src/runtime/pprof/pprof.go:369
+#	0x391d679	github.com/minio/minio/cmd.(*profilerWrapper).record+0x119		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/utils.go:309
+#	0x391f506	github.com/minio/minio/cmd.startProfiler+0x1426				C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/utils.go:460
+#	0x31f2cda	github.com/minio/minio/cmd.adminAPIHandlers.ProfileHandler+0x83a	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/admin-handlers.go:1118
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35c353c	github.com/minio/minio/cmd.httpTrace.func1+0x1dc			C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/http-tracer.go:189
+#	0x321ed34	github.com/minio/minio/cmd.adminMiddleware.func1+0x4b4			C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/admin-router.go:123
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x1aa0172	github.com/klauspost/compress/gzhttp.NewWrapper.func1.1+0x472		C:/Users/DavidLin/go/pkg/mod/github.com/klauspost/compress@v1.17.8/gzhttp/compress.go:497
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35aa4a7	github.com/minio/minio/cmd.setBucketForwardingMiddleware.func1+0x267	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/generic-handlers.go:473
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35ac221	github.com/minio/minio/cmd.setUploadForwardingMiddleware.func1+0x1a1	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/generic-handlers.go:586
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35a9765	github.com/minio/minio/cmd.setRequestValidityMiddleware.func1+0x2345	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/generic-handlers.go:456
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35a5158	github.com/minio/minio/cmd.setRequestLimitMiddleware.func1+0x958	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/generic-handlers.go:139
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x34339d7	github.com/minio/minio/cmd.setCrossDomainPolicyMiddleware.func1+0x3d7	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/crossdomain-xml-handler.go:46
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35a57f6	github.com/minio/minio/cmd.setBrowserRedirectMiddleware.func1+0x356	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/generic-handlers.go:169
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x324f436	github.com/minio/minio/cmd.setAuthMiddleware.func1+0xa96		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/auth-handler.go:651
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35c2593	github.com/minio/minio/cmd.httpTracerMiddleware.func1+0x413		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/http-tracer.go:89
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+#	0x35ab5d2	github.com/minio/minio/cmd.addCustomHeadersMiddleware.func1+0x192	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/generic-handlers.go:551
+#	0xb11a52	net/http.HandlerFunc.ServeHTTP+0x32					C:/Program Files/Go/src/net/http/server.go:2166
+
+1 @ 0x5cb0fc 0x58bec9 0x58bbf2 0x254e312 0x6021c1
+#	0x254e311	github.com/minio/console/api.(*Server).handleShutdown+0xd1	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/custom-server.go:461
+
+1 @ 0x5cb0fc 0x58bec9 0x58bbf2 0x33be639 0x6021c1
+#	0x33be638	github.com/minio/minio/cmd.(*ReplicationPool).AddLargeWorkers.func1+0x38	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:1916
+
+1 @ 0x5cb0fc 0x58bec9 0x58bbf2 0x33cde73 0x6021c1
+#	0x33cde72	github.com/minio/minio/cmd.(*ReplicationPool).startResyncRoutine+0x172	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:3028
+
+1 @ 0x5cb0fc 0x58bec9 0x58bbf2 0x37e5bb7 0x20db95b 0x20ddc13 0x20d91b8 0x3649bb3 0x3aec588 0x5cacb2 0x6021c1
+#	0x37e5bb6	github.com/minio/minio/cmd.serverMain+0x1596	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/server-main.go:1165
+#	0x20db95a	github.com/minio/cli.HandleAction+0x1da		C:/Users/DavidLin/go/pkg/mod/github.com/minio/cli@v1.24.2/app.go:492
+#	0x20ddc12	github.com/minio/cli.Command.Run+0x17d2		C:/Users/DavidLin/go/pkg/mod/github.com/minio/cli@v1.24.2/command.go:242
+#	0x20d91b7	github.com/minio/cli.(*App).Run+0xc37		C:/Users/DavidLin/go/pkg/mod/github.com/minio/cli@v1.24.2/app.go:260
+#	0x3649bb2	github.com/minio/minio/cmd.Main+0x172		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/main.go:217
+#	0x3aec587	main.main+0x27					C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/main.go:30
+#	0x5cacb1	runtime.main+0x231				C:/Program Files/Go/src/runtime/proc.go:271
+
+1 @ 0x5cb0fc 0x58bec9 0x58bbf2 0x381b8fa 0x6021c1
+#	0x381b8f9	github.com/minio/minio/cmd.(*siteResyncMetrics).init+0x139	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/site-replication-utils.go:88
+
+1 @ 0x5cb0fc 0x58bec9 0x58bc12 0x254eb74 0x618308 0x61815e 0x254eae8 0x6021c1
+#	0x254eb73	github.com/minio/console/api.handleInterrupt.func1+0x53	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/custom-server.go:540
+#	0x618307	sync.(*Once).doSlow+0x167				C:/Program Files/Go/src/sync/once.go:74
+#	0x61815d	sync.(*Once).Do+0x3d					C:/Program Files/Go/src/sync/once.go:65
+#	0x254eae7	github.com/minio/console/api.handleInterrupt+0x67	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/custom-server.go:539
+
+1 @ 0x5cb0fc 0x58bec9 0x58bc12 0x259db26 0x6021c1
+#	0x259db25	github.com/minio/console/api.(*wsMinioClient).objectManager+0x405	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/ws_objects.go:265
+
+1 @ 0x5cb0fc 0x58bec9 0x58bc12 0xbbc2a5 0x6021c1
+#	0xbbc2a4	github.com/rjeczalik/notify.(*recursiveTree).dispatch+0x44	C:/Users/DavidLin/go/pkg/mod/github.com/rjeczalik/notify@v0.9.3/tree_recursive.go:125
+
+1 @ 0x5cb0fc 0x5c1fbe 0x5fb91c 0x68e41a 0x690398 0x692778 0x903a13 0x92d325 0x6ddf1a 0x6de2db 0x2081705 0x208533c 0x2086e87 0x2087a05 0x2597285 0x259e0da 0x6021c1
+#	0x5fb91b	internal/poll.runtime_pollWait+0x3b					C:/Program Files/Go/src/runtime/netpoll.go:345
+#	0x68e419	internal/poll.(*pollDesc).wait+0x79					C:/Program Files/Go/src/internal/poll/fd_poll_runtime.go:84
+#	0x690397	internal/poll.execIO+0x2b7						C:/Program Files/Go/src/internal/poll/fd_windows.go:175
+#	0x692777	internal/poll.(*FD).Read+0x4b7						C:/Program Files/Go/src/internal/poll/fd_windows.go:436
+#	0x903a12	net.(*netFD).Read+0x72							C:/Program Files/Go/src/net/fd_posix.go:55
+#	0x92d324	net.(*conn).Read+0xa4							C:/Program Files/Go/src/net/net.go:179
+#	0x6ddf19	bufio.(*Reader).fill+0x259						C:/Program Files/Go/src/bufio/bufio.go:110
+#	0x6de2da	bufio.(*Reader).Peek+0x15a						C:/Program Files/Go/src/bufio/bufio.go:148
+#	0x2081704	github.com/minio/websocket.(*Conn).read+0x84				C:/Users/DavidLin/go/pkg/mod/github.com/minio/websocket@v1.6.0/conn.go:370
+#	0x208533b	github.com/minio/websocket.(*Conn).advanceFrame+0x17b			C:/Users/DavidLin/go/pkg/mod/github.com/minio/websocket@v1.6.0/conn.go:807
+#	0x2086e86	github.com/minio/websocket.(*Conn).NextReader+0x126			C:/Users/DavidLin/go/pkg/mod/github.com/minio/websocket@v1.6.0/conn.go:1007
+#	0x2087a04	github.com/minio/websocket.(*Conn).ReadMessage+0x64			C:/Users/DavidLin/go/pkg/mod/github.com/minio/websocket@v1.6.0/conn.go:1091
+#	0x2597284	github.com/minio/console/api.wsConn.readMessage+0x64			C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/ws_handle.go:133
+#	0x259e0d9	github.com/minio/console/api.(*wsMinioClient).objectManager.func3+0x159	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/ws_objects.go:63
+
+1 @ 0x5cb0fc 0x5c1fbe 0x5fb91c 0x68e41a 0x690398 0x69792d 0x698085 0x9070af 0x9409da 0x93de85 0xb1776b 0x254ca3c 0x6021c1
+#	0x5fb91b	internal/poll.runtime_pollWait+0x3b			C:/Program Files/Go/src/runtime/netpoll.go:345
+#	0x68e419	internal/poll.(*pollDesc).wait+0x79			C:/Program Files/Go/src/internal/poll/fd_poll_runtime.go:84
+#	0x690397	internal/poll.execIO+0x2b7				C:/Program Files/Go/src/internal/poll/fd_windows.go:175
+#	0x69792c	internal/poll.(*FD).acceptOne+0x10c			C:/Program Files/Go/src/internal/poll/fd_windows.go:944
+#	0x698084	internal/poll.(*FD).Accept+0x444			C:/Program Files/Go/src/internal/poll/fd_windows.go:978
+#	0x9070ae	net.(*netFD).accept+0xce				C:/Program Files/Go/src/net/fd_windows.go:178
+#	0x9409d9	net.(*TCPListener).accept+0x59				C:/Program Files/Go/src/net/tcpsock_posix.go:159
+#	0x93de84	net.(*TCPListener).Accept+0x64				C:/Program Files/Go/src/net/tcpsock.go:327
+#	0xb1776a	net/http.(*Server).Serve+0x50a				C:/Program Files/Go/src/net/http/server.go:3255
+#	0x254ca3b	github.com/minio/console/api.(*Server).Serve.func2+0xdb	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/custom-server.go:238
+
+1 @ 0x5cb0fc 0x5cb185 0x5ddaf7 0x5fd0a5 0x61a84b 0x154145f 0x154e11b 0x6021c1
+#	0x5fd0a4	sync.runtime_Semacquire+0x24							C:/Program Files/Go/src/runtime/sema.go:62
+#	0x61a84a	sync.(*WaitGroup).Wait+0x8a							C:/Program Files/Go/src/sync/waitgroup.go:116
+#	0x154145e	github.com/minio/pkg/v2/workers.(*Workers).Wait+0x1e				C:/Users/DavidLin/go/pkg/mod/github.com/minio/pkg/v2@v2.0.17/workers/workers.go:62
+#	0x154e11a	github.com/minio/minio/internal/event.(*TargetList).startSendWorkers+0x17a	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/internal/event/targetlist.go:379
+
+1 @ 0x5cb0fc 0x5cb185 0x5ddaf7 0x5fd0a5 0x61a84b 0x254ade7 0x39dfbbd 0x6021c1
+#	0x5fd0a4	sync.runtime_Semacquire+0x24				C:/Program Files/Go/src/runtime/sema.go:62
+#	0x61a84a	sync.(*WaitGroup).Wait+0x8a				C:/Program Files/Go/src/sync/waitgroup.go:116
+#	0x254ade6	github.com/minio/console/api.(*Server).Serve+0x9c6	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/api/custom-server.go:346
+#	0x39dfbbc	github.com/minio/minio/cmd.serverMain.func12.2.1+0x1c	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/server-main.go:982
+
+1 @ 0x5cb0fc 0x5dcea7 0x277c455 0x6021c1
+#	0x277c454	github.com/minio/minio/internal/bucket/bandwidth.(*Monitor).trackEWMA+0xb4	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/internal/bucket/bandwidth/monitor.go:137
+
+1 @ 0x5cb0fc 0x5dcea7 0x3060cc6 0x6021c1
+#	0x3060cc5	go.opencensus.io/stats/view.(*worker).start+0x125	C:/Users/DavidLin/go/pkg/mod/go.opencensus.io@v0.24.0/stats/view/worker.go:292
+
+1 @ 0x5cb0fc 0x5dcea7 0x32175f5 0x6021c1
+#	0x32175f4	github.com/minio/minio/cmd.(*allHealState).periodicHealSeqsClean+0x174	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/admin-heal-ops.go:210
+
+1 @ 0x5cb0fc 0x5dcea7 0x3258c25 0x6021c1
+#	0x3258c24	github.com/minio/minio/cmd.monitorLocalDisksAndHeal+0x184	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/background-newdisks-heal-ops.go:505
+
+1 @ 0x5cb0fc 0x5dcea7 0x3298ac5 0x6021c1
+#	0x3298ac4	github.com/minio/minio/cmd.(*batchJobMetrics).purgeJobMetrics+0x164	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/batch-handlers.go:1984
+
+1 @ 0x5cb0fc 0x5dcea7 0x33744b4 0x6021c1
+#	0x33744b3	github.com/minio/minio/cmd.(*ReplicationStats).trackEWMA+0xb3	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication-stats.go:68
+
+1 @ 0x5cb0fc 0x5dcea7 0x3374a56 0x6021c1
+#	0x3374a55	github.com/minio/minio/cmd.(*ReplicationStats).collectWorkerMetrics+0xd5	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication-stats.go:105
+
+1 @ 0x5cb0fc 0x5dcea7 0x3374bd6 0x6021c1
+#	0x3374bd5	github.com/minio/minio/cmd.(*ReplicationStats).collectQueueMetrics+0xd5	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication-stats.go:123
+
+1 @ 0x5cb0fc 0x5dcea7 0x33c8186 0x6021c1
+#	0x33c8185	github.com/minio/minio/cmd.(*replicationResyncer).PersistToDisk+0x245	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:2632
+
+1 @ 0x5cb0fc 0x5dcea7 0x33d2f1a 0x6021c1
+#	0x33d2f19	github.com/minio/minio/cmd.(*ReplicationPool).persistMRF+0x299	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:3359
+
+1 @ 0x5cb0fc 0x5dcea7 0x33d4d9d 0x6021c1
+#	0x33d4d9c	github.com/minio/minio/cmd.(*ReplicationPool).processMRF+0x19c	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-replication.go:3529
+
+1 @ 0x5cb0fc 0x5dcea7 0x3400e85 0x6021c1
+#	0x3400e84	github.com/minio/minio/cmd.(*BucketTargetSys).heartBeat+0x184	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-targets.go:144
+
+1 @ 0x5cb0fc 0x5dcea7 0x340863d 0x6021c1
+#	0x340863c	github.com/minio/minio/cmd.NewBucketTargetSys.func1+0x17c	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/bucket-targets.go:566
+
+1 @ 0x5cb0fc 0x5dcea7 0x3414358 0x6021c1
+#	0x3414357	github.com/minio/minio/cmd.runDNSCache.func1+0x157	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/common-main.go:525
+
+1 @ 0x5cb0fc 0x5dcea7 0x343713c 0x343619b 0x6021c1
+#	0x343713b	github.com/minio/minio/cmd.runDataScanner+0x67b		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/data-scanner.go:180
+#	0x343619a	github.com/minio/minio/cmd.initDataScanner.func1+0x9a	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/data-scanner.go:81
+
+1 @ 0x5cb0fc 0x5dcea7 0x35759ba 0x6021c1
+#	0x35759b9	github.com/minio/minio/cmd.(*erasureSets).monitorAndConnectEndpoints+0x1f9	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/erasure-sets.go:306
+
+1 @ 0x5cb0fc 0x5dcea7 0x3578c65 0x6021c1
+#	0x3578c64	github.com/minio/minio/cmd.(*erasureSets).cleanupDeletedObjects+0x184	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/erasure-sets.go:505
+
+1 @ 0x5cb0fc 0x5dcea7 0x3579385 0x6021c1
+#	0x3579384	github.com/minio/minio/cmd.(*erasureSets).cleanupStaleUploads+0x184	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/erasure-sets.go:533
+
+1 @ 0x5cb0fc 0x5dcea7 0x35fb7ac 0x6021c1
+#	0x35fb7ab	github.com/minio/minio/cmd.(*IAMSys).periodicRoutines+0x40b	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/iam.go:388
+
+1 @ 0x5cb0fc 0x5dcea7 0x3633ffd 0x3633d37 0x6021c1
+#	0x3633ffc	github.com/minio/minio/cmd.licenceUpdaterLoop+0x25c		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/license-update.go:65
+#	0x3633d36	github.com/minio/minio/cmd.initLicenseUpdateJob.func1+0x96	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/license-update.go:43
+
+1 @ 0x5cb0fc 0x5dcea7 0x369570b 0x39dfeaf 0x37e275f 0x6021c1
+#	0x369570a	github.com/minio/minio/cmd.startResourceMetricsCollection+0x1aa	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/metrics-resource.go:381
+#	0x39dfeae	github.com/minio/minio/cmd.serverMain.func15+0xe		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/server-main.go:1138
+#	0x37e275e	github.com/minio/minio/cmd.bootstrapTrace+0x21e			C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/server-main.go:580
+
+1 @ 0x5cb0fc 0x5dcea7 0x36cfb96 0x6021c1
+#	0x36cfb95	github.com/minio/minio/cmd.(*mrfState).healRoutine+0x115	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/mrf.go:70
+
+1 @ 0x5cb0fc 0x5dcea7 0x37f7366 0x6021c1
+#	0x37f7365	github.com/minio/minio/cmd.sharedLock.backgroundRoutine+0x345	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/shared-lock.go:45
+
+1 @ 0x5cb0fc 0x5dcea7 0x37f7d74 0x6021c1
+#	0x37f7d73	github.com/minio/minio/cmd.handleSignals+0x133	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/signals.go:78
+
+1 @ 0x5cb0fc 0x5dcea7 0x3807511 0x6021c1
+#	0x3807510	github.com/minio/minio/cmd.(*SRStats).trackEWMA+0xb0	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/site-replication-metrics.go:234
+
+1 @ 0x5cb0fc 0x5dcea7 0x381ca35 0x6021c1
+#	0x381ca34	github.com/minio/minio/cmd.(*siteResyncMetrics).save+0x174	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/site-replication-utils.go:169
+
+1 @ 0x5cb0fc 0x5dcea7 0x385e1dd 0x6021c1
+#	0x385e1dc	github.com/minio/minio/cmd.(*SiteReplicationSys).startHealRoutine+0x27c	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/site-replication.go:4277
+
+1 @ 0x5cb0fc 0x5dcea7 0x39fdfb7 0x6021c1
+#	0x39fdfb6	github.com/hashicorp/golang-lru/v2/expirable.NewLRU[...].func1+0x196	C:/Users/DavidLin/go/pkg/mod/github.com/hashicorp/golang-lru/v2@v2.0.7/expirable/expirable_lru.go:86
+
+1 @ 0x5cb0fc 0x5dcea7 0xcd4d4d 0xb1776b 0xcd7c4a 0x37e842d 0x6021c1
+#	0xcd4d4c	github.com/minio/minio/internal/http.(*httpListener).Accept+0x10c	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/internal/http/listener.go:75
+#	0xb1776a	net/http.(*Server).Serve+0x50a						C:/Program Files/Go/src/net/http/server.go:3255
+#	0xcd7c49	github.com/minio/minio/internal/http.(*Server).Init.func2+0x49		C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/internal/http/server.go:141
+#	0x37e842c	github.com/minio/minio/cmd.serverMain.func8.1+0xcc			C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/cmd/server-main.go:896
+
+1 @ 0x5cb0fc 0x5dcea7 0xe6ee67 0x6021c1
+#	0xe6ee66	github.com/shirou/gopsutil/v3/load.loadAvgGoroutine+0x426	C:/Users/DavidLin/go/pkg/mod/github.com/shirou/gopsutil/v3@v3.24.3/load/load_windows.go:56
+
+1 @ 0x5cb0fc 0x5fee05 0x14b2e4a 0x6021c1
+#	0x5fee04	time.Sleep+0x104								C:/Program Files/Go/src/runtime/time.go:195
+#	0x14b2e49	github.com/minio/minio/internal/logger.(*logOnceType).cleanupRoutine+0x29	C:/Users/DavidLin/Desktop/Study/MinIO_source_code/minio-RELEASE.2024-05-07T06-41-25Z/minio-RELEASE.2024-05-07T06-41-25Z/internal/logger/logonce.go:125
+
+1 @ 0x5cb0fc 0x5fee05 0x2099606 0x6021c1
+#	0x5fee04	time.Sleep+0x104							C:/Program Files/Go/src/runtime/time.go:195
+#	0x2099605	github.com/minio/console/pkg/logger.(*logOnceType).cleanupRoutine+0x85	C:/Users/DavidLin/go/pkg/mod/github.com/minio/console@v1.4.0/pkg/logger/logonce.go:62
+

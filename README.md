@@ -1,93 +1,252 @@
-# mc_client
+# MinIO Client Quickstart Guide
+[![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![Go Report Card](https://goreportcard.com/badge/minio/mc)](https://goreportcard.com/report/minio/mc) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/mc.svg?maxAge=604800)](https://hub.docker.com/r/minio/mc/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/minio/mc/blob/master/LICENSE)
 
+# Documentation
+- [MC documentation](https://min.io/docs/minio/linux/reference/minio-mc.html)
 
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+MinIO Client (mc) provides a modern alternative to UNIX commands like ls, cat, cp, mirror, diff, find etc. It supports filesystems and Amazon S3 compatible cloud storage service (AWS Signature v2 and v4).
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/Davisanity/mc_client.git
-git branch -M main
-git push -uf origin main
+  alias      manage server credentials in configuration file
+  admin      manage MinIO servers
+  anonymous  manage anonymous access to buckets and objects
+  batch      manage batch jobs
+  cp         copy objects
+  cat        display object contents
+  diff       list differences in object name, size, and date between two buckets
+  du         summarize disk usage recursively
+  encrypt    manage bucket encryption config
+  event      manage object notifications
+  find       search for objects
+  get        get s3 object to local
+  head       display first 'n' lines of an object
+  ilm        manage bucket lifecycle
+  idp        manage MinIO IDentity Provider server configuration
+  license    license related commands
+  legalhold  manage legal hold for object(s)
+  ls         list buckets and objects
+  mb         make a bucket
+  mv         move objects
+  mirror     synchronize object(s) to a remote site
+  od         measure single stream upload and download
+  ping       perform liveness check
+  pipe       stream STDIN to an object
+  put        upload an object to a bucket
+  quota      manage bucket quota
+  rm         remove object(s)
+  retention  set retention for object(s)
+  rb         remove a bucket
+  replicate  configure server side bucket replication
+  ready      checks if the cluster is ready or not
+  sql        run sql queries on objects
+  stat       show object metadata
+  support    support related commands
+  share      generate URL for temporary access to an object
+  tree       list buckets and objects in a tree format
+  tag        manage tags for bucket and object(s)
+  undo       undo PUT/DELETE operations
+  update     update mc to latest release
+  version    manage bucket versioning
+  watch      listen for object notification events
 ```
 
-## Integrate with your tools
+## Docker Container
+### Stable
+```
+docker pull minio/mc
+docker run minio/mc ls play
+```
 
-- [ ] [Set up project integrations](https://gitlab.com/Davisanity/mc_client/-/settings/integrations)
+### Edge
+```
+docker pull minio/mc:edge
+docker run minio/mc:edge ls play
+```
 
-## Collaborate with your team
+**Note:** Above examples run `mc` against MinIO [_play_ environment](#test-your-setup) by default. To run `mc` against other S3 compatible servers, start the container this way:
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+```
+docker run -it --entrypoint=/bin/sh minio/mc
+```
 
-## Test and Deploy
+then use the [`mc alias` command](#add-a-cloud-storage-service).
 
-Use the built-in continuous integration in GitLab.
+### GitLab CI
+When using the Docker container in GitLab CI, you must [set the entrypoint to an empty string](https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#override-the-entrypoint-of-an-image).
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+```
+deploy:
+  image:
+    name: minio/mc
+    entrypoint: ['']
+  stage: deploy
+  before_script:
+    - mc alias set minio $MINIO_HOST $MINIO_ACCESS_KEY $MINIO_SECRET_KEY
+  script:
+    - mc cp <source> <destination>
+```
 
-***
+## macOS
+### Homebrew
+Install mc packages using [Homebrew](http://brew.sh/)
 
-# Editing this README
+```
+brew install minio/stable/mc
+mc --help
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## GNU/Linux
+### Binary Download
+| Platform | Architecture | URL |
+| ---------- | -------- |------|
+|GNU/Linux|64-bit Intel|https://dl.min.io/client/mc/release/linux-amd64/mc |
+|GNU/Linux|64-bit PPC|https://dl.min.io/client/mc/release/linux-ppc64le/mc |
+|GNU/Linux|64-bit ARM|https://dl.min.io/client/mc/release/linux-arm64/mc |
+|Linux/s390x|S390X|https://dl.min.io/client/mc/release/linux-s390x/mc |
 
-## Suggestions for a good README
+```
+wget https://dl.min.io/client/mc/release/linux-amd64/mc
+chmod +x mc
+./mc --help
+```
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Microsoft Windows
+### Binary Download
+| Platform | Architecture | URL |
+| ---------- | -------- |------|
+|Microsoft Windows|64-bit Intel|https://dl.min.io/client/mc/release/windows-amd64/mc.exe |
 
-## Name
-Choose a self-explaining name for your project.
+```
+mc.exe --help
+```
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## Install from Source
+Source installation is only intended for developers and advanced users. If you do not have a working Golang environment, please follow [How to install Golang](https://golang.org/doc/install). Minimum version required is [go1.17](https://golang.org/dl/#stable)
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+```sh
+go install github.com/minio/mc@latest
+```
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## Add a Cloud Storage Service
+If you are planning to use `mc` only on POSIX compatible filesystems, you may skip this step and proceed to [everyday use](#everyday-use).
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+To add one or more Amazon S3 compatible hosts, please follow the instructions below. `mc` stores all its configuration information in ``~/.mc/config.json`` file.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+```
+mc alias set <ALIAS> <YOUR-S3-ENDPOINT> <YOUR-ACCESS-KEY> <YOUR-SECRET-KEY> --api <API-SIGNATURE> --path <BUCKET-LOOKUP-TYPE>
+```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+`<ALIAS>` is simply a short name to your cloud storage service. S3 end-point, access and secret keys are supplied by your cloud storage provider. API signature is an optional argument. By default, it is set to "S3v4".
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Path is an optional argument. It is used to indicate whether dns or path style url requests are supported by the server. It accepts "on", "off" as valid values to enable/disable path style requests.. By default, it is set to "auto" and SDK automatically determines the type of url lookup to use.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### Example - MinIO Cloud Storage
+MinIO server startup banner displays URL, access and secret keys.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+```
+mc alias set minio http://192.168.1.51 BKIKJAA5BMMU2RHO6IBB V7f1CwQqAcwo80UEIJEjc5gVQUSSx5ohQ9GSrr12
+```
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### Example - Amazon S3 Cloud Storage
+Get your AccessKeyID and SecretAccessKey by following [AWS Credentials Guide](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html).
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+```
+mc alias set s3 https://s3.amazonaws.com BKIKJAA5BMMU2RHO6IBB V7f1CwQqAcwo80UEIJEjc5gVQUSSx5ohQ9GSrr12
+```
+
+**Note**: As an IAM user on Amazon S3 you need to make sure the user has full access to the buckets or set the following restricted policy for your IAM user
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowBucketStat",
+            "Effect": "Allow",
+            "Action": [
+                "s3:HeadBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowThisBucketOnly",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::<your-restricted-bucket>/*",
+                "arn:aws:s3:::<your-restricted-bucket>"
+            ]
+        }
+    ]
+}
+```
+
+### Example - Google Cloud Storage
+Get your AccessKeyID and SecretAccessKey by following [Google Credentials Guide](https://cloud.google.com/storage/docs/migrating?hl=en#keys)
+
+```
+mc alias set gcs  https://storage.googleapis.com BKIKJAA5BMMU2RHO6IBB V8f1CwQqAcwo80UEIJEjc5gVQUSSx5ohQ9GSrr12
+```
+
+## Test Your Setup
+`mc` is pre-configured with https://play.min.io, aliased as "play". It is a hosted MinIO server for testing and development purpose.  To test Amazon S3, simply replace "play" with "s3" or the alias you used at the time of setup.
+
+*Example:*
+
+List all buckets from https://play.min.io
+
+```
+mc ls play
+[2016-03-22 19:47:48 PDT]     0B my-bucketname/
+[2016-03-22 22:01:07 PDT]     0B mytestbucket/
+[2016-03-22 20:04:39 PDT]     0B mybucketname/
+[2016-01-28 17:23:11 PST]     0B newbucket/
+[2016-03-20 09:08:36 PDT]     0B s3git-test/
+```
+
+Make a bucket
+`mb` command creates a new bucket.
+
+*Example:*
+```
+mc mb play/mybucket
+Bucket created successfully `play/mybucket`.
+```
+
+Copy Objects
+`cp` command copies data from one or more sources to a target.
+
+*Example:*
+```
+mc cp myobject.txt play/mybucket
+myobject.txt:    14 B / 14 B  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  100.00 % 41 B/s 0
+```
+
+## Everyday Use
+
+### Shell aliases
+You may add shell aliases to override your common Unix tools.
+
+```
+alias ls='mc ls'
+alias cp='mc cp'
+alias cat='mc cat'
+alias mkdir='mc mb'
+alias pipe='mc pipe'
+alias find='mc find'
+```
+
+### Shell autocompletion
+In case you are using bash, zsh or fish. Shell completion is embedded by default in `mc`, to install auto-completion use `mc --autocompletion`. Restart the shell, mc will auto-complete commands as shown below.
+
+```
+mc <TAB>
+admin    config   diff     find     ls       mirror   policy   session  sql      update   watch
+cat      cp       event    head     mb       pipe     rm       share    stat     version
+```
+
+## Contribute to MinIO Project
+Please follow MinIO [Contributor's Guide](https://github.com/minio/mc/blob/master/CONTRIBUTING.md)
 
 ## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Use of `mc` is governed by the GNU AGPLv3 license that can be found in the [LICENSE](https://github.com/minio/mc/blob/master/LICENSE) file.
